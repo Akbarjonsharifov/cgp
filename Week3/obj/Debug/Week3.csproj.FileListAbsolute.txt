@@ -1,0 +1,4 @@
+C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.csproj.AssemblyReference.cache
+C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.Properties.Resources.resources
+C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.csproj.GenerateResource.cache
+C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.csproj.CoreCompileInputs.cache
