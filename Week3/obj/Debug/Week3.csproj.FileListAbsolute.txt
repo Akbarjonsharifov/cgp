@@ -2,3 +2,8 @@ C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.csproj.AssemblyRef
 C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.Properties.Resources.resources
 C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.csproj.GenerateResource.cache
 C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.csproj.CoreCompileInputs.cache
+C:\Users\akbarsharifov\source\repos\cgp\Week3\bin\Debug\Week3.exe.config
+C:\Users\akbarsharifov\source\repos\cgp\Week3\bin\Debug\Week3.exe
+C:\Users\akbarsharifov\source\repos\cgp\Week3\bin\Debug\Week3.pdb
+C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.exe
+C:\Users\akbarsharifov\source\repos\cgp\Week3\obj\Debug\Week3.pdb
