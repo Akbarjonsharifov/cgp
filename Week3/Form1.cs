@@ -66,7 +66,8 @@ namespace Week3
             base.OnPaint(e);
             using (Graphics g = e.Graphics)
             {
-
+                using(Brush redBrush = new SolidBrush(Color.Red))
+                
                 using (Brush movingBrush = new SolidBrush(Color.FromArgb(255, 255 - (x % 256), 255 - (y % 256))))
                 {
                     g.FillRectangle(movingBrush, moving);
@@ -76,4 +77,12 @@ namespace Week3
     }
 }
 
-
+static class Program
+{
+    static void Main()
+    {
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new Form1());
+    }
+}
