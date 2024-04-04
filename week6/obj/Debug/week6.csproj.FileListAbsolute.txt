@@ -1,0 +1,10 @@
+C:\Users\akbarsharifov\source\repos\cgp\week6\obj\Debug\week6.csproj.AssemblyReference.cache
+C:\Users\akbarsharifov\source\repos\cgp\week6\obj\Debug\week6.Properties.Resources.resources
+C:\Users\akbarsharifov\source\repos\cgp\week6\obj\Debug\week6.csproj.GenerateResource.cache
+C:\Users\akbarsharifov\source\repos\cgp\week6\obj\Debug\week6.csproj.CoreCompileInputs.cache
+C:\Users\akbarsharifov\source\repos\cgp\week6\bin\Debug\week6.exe.config
+C:\Users\akbarsharifov\source\repos\cgp\week6\bin\Debug\week6.exe
+C:\Users\akbarsharifov\source\repos\cgp\week6\bin\Debug\week6.pdb
+C:\Users\akbarsharifov\source\repos\cgp\week6\obj\Debug\week6.exe
+C:\Users\akbarsharifov\source\repos\cgp\week6\obj\Debug\week6.pdb
+C:\Users\akbarsharifov\source\repos\cgp\week6\obj\Debug\week6.Form1.resources
