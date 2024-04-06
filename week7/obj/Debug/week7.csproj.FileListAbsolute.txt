@@ -1,0 +1,9 @@
+C:\Users\akbarsharifov\source\repos\cgp\week7\bin\Debug\week7.exe.config
+C:\Users\akbarsharifov\source\repos\cgp\week7\bin\Debug\week7.exe
+C:\Users\akbarsharifov\source\repos\cgp\week7\bin\Debug\week7.pdb
+C:\Users\akbarsharifov\source\repos\cgp\week7\obj\Debug\week7.csproj.AssemblyReference.cache
+C:\Users\akbarsharifov\source\repos\cgp\week7\obj\Debug\week7.Properties.Resources.resources
+C:\Users\akbarsharifov\source\repos\cgp\week7\obj\Debug\week7.csproj.GenerateResource.cache
+C:\Users\akbarsharifov\source\repos\cgp\week7\obj\Debug\week7.csproj.CoreCompileInputs.cache
+C:\Users\akbarsharifov\source\repos\cgp\week7\obj\Debug\week7.exe
+C:\Users\akbarsharifov\source\repos\cgp\week7\obj\Debug\week7.pdb
