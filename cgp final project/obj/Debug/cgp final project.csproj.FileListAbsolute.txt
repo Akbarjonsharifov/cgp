@@ -1,0 +1,10 @@
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\bin\Debug\cgp final project.exe.config
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\bin\Debug\cgp final project.exe
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\bin\Debug\cgp final project.pdb
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\obj\Debug\cgp final project.csproj.AssemblyReference.cache
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\obj\Debug\cgp_final_project.Form1.resources
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\obj\Debug\cgp_final_project.Properties.Resources.resources
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\obj\Debug\cgp final project.csproj.GenerateResource.cache
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\obj\Debug\cgp final project.csproj.CoreCompileInputs.cache
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\obj\Debug\cgp final project.exe
+C:\Users\akbarsharifov\source\repos\cgp\cgp final project\obj\Debug\cgp final project.pdb
