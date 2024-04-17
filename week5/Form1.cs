@@ -34,7 +34,7 @@ namespace week5
             points.Add(new Point(100, 300));
             points.Add(new Point(1100, 300));
             points.Add(new Point(1100, 400));
-            points.Add(new Point(210, 60));
+            points.Add(new Point(100, 400));
 
             
 
