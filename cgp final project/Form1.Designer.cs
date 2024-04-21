@@ -30,30 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.circle_btn = new System.Windows.Forms.PictureBox();
             this.x_Button = new System.Windows.Forms.Button();
             this.clear_Button = new System.Windows.Forms.Button();
             this.save_Button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.canvasPanel = new System.Windows.Forms.Panel();
             this.toolboxPanel = new System.Windows.Forms.Panel();
+            this.brush_size = new System.Windows.Forms.NumericUpDown();
             this.colorbox = new System.Windows.Forms.PictureBox();
             this.eraser_button = new System.Windows.Forms.PictureBox();
             this.draw_button = new System.Windows.Forms.PictureBox();
-            this.brush_size = new System.Windows.Forms.NumericUpDown();
+            this.rectangle_btn = new System.Windows.Forms.PictureBox();
+            this.circle_btn = new System.Windows.Forms.PictureBox();
             this.TopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circle_btn)).BeginInit();
             this.canvasPanel.SuspendLayout();
             this.toolboxPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.brush_size)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eraser_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw_button)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brush_size)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rectangle_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circle_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.TopPanel.Controls.Add(this.rectangle_btn);
             this.TopPanel.Controls.Add(this.circle_btn);
             this.TopPanel.Controls.Add(this.x_Button);
             this.TopPanel.Controls.Add(this.clear_Button);
@@ -68,17 +71,6 @@
             this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
             this.TopPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
-            // 
-            // circle_btn
-            // 
-            this.circle_btn.Image = global::cgp_final_project.Properties.Resources.circle1;
-            this.circle_btn.Location = new System.Drawing.Point(951, 13);
-            this.circle_btn.Name = "circle_btn";
-            this.circle_btn.Size = new System.Drawing.Size(124, 84);
-            this.circle_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.circle_btn.TabIndex = 4;
-            this.circle_btn.TabStop = false;
-            this.circle_btn.Click += new System.EventHandler(this.circle_btn_Click);
             // 
             // x_Button
             // 
@@ -148,6 +140,14 @@
             this.toolboxPanel.TabIndex = 0;
             this.toolboxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // brush_size
+            // 
+            this.brush_size.Location = new System.Drawing.Point(34, 299);
+            this.brush_size.Name = "brush_size";
+            this.brush_size.Size = new System.Drawing.Size(188, 31);
+            this.brush_size.TabIndex = 0;
+            this.brush_size.ValueChanged += new System.EventHandler(this.paintbrushsize_changed);
+            // 
             // colorbox
             // 
             this.colorbox.BackColor = System.Drawing.SystemColors.Desktop;
@@ -180,13 +180,27 @@
             this.draw_button.TabStop = false;
             this.draw_button.Click += new System.EventHandler(this.draw_button_Click);
             // 
-            // brush_size
+            // rectangle_btn
             // 
-            this.brush_size.Location = new System.Drawing.Point(34, 299);
-            this.brush_size.Name = "brush_size";
-            this.brush_size.Size = new System.Drawing.Size(188, 31);
-            this.brush_size.TabIndex = 0;
-            this.brush_size.ValueChanged += new System.EventHandler(this.paintbrushsize_changed);
+            this.rectangle_btn.Image = global::cgp_final_project.Properties.Resources.rectangle;
+            this.rectangle_btn.Location = new System.Drawing.Point(951, 119);
+            this.rectangle_btn.Name = "rectangle_btn";
+            this.rectangle_btn.Size = new System.Drawing.Size(124, 85);
+            this.rectangle_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rectangle_btn.TabIndex = 5;
+            this.rectangle_btn.TabStop = false;
+            this.rectangle_btn.Click += new System.EventHandler(this.rectangle_btn_Click);
+            // 
+            // circle_btn
+            // 
+            this.circle_btn.Image = global::cgp_final_project.Properties.Resources.circle1;
+            this.circle_btn.Location = new System.Drawing.Point(951, 13);
+            this.circle_btn.Name = "circle_btn";
+            this.circle_btn.Size = new System.Drawing.Size(124, 84);
+            this.circle_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.circle_btn.TabIndex = 4;
+            this.circle_btn.TabStop = false;
+            this.circle_btn.Click += new System.EventHandler(this.circle_btn_Click);
             // 
             // Form1
             // 
@@ -199,13 +213,14 @@
             this.Text = "Paint";
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circle_btn)).EndInit();
             this.canvasPanel.ResumeLayout(false);
             this.toolboxPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.brush_size)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eraser_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw_button)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brush_size)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rectangle_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circle_btn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +240,7 @@
         private System.Windows.Forms.PictureBox eraser_button;
         private System.Windows.Forms.PictureBox colorbox;
         private System.Windows.Forms.PictureBox circle_btn;
+        private System.Windows.Forms.PictureBox rectangle_btn;
     }
 }
 

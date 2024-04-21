@@ -28,9 +28,11 @@ namespace cgp_final_project
 
         private bool isDraggingCircle = false;
         private Rectangle circleBounds;  // This will store the circle's position and size
+        private Rectangle rectangleBounds;
 
 
         private bool paint = false;
+        private bool isDraggingRectangle = false;
 
         Bitmap surface;
 
@@ -63,9 +65,23 @@ namespace cgp_final_project
 
         pen.Width = (float)brush_size.Value;
         }
-        
+        // 
+        private void MoveShape(ref Rectangle bounds, MouseEventArgs e)
+        {
+            int deltaX = e.X - old.X;
+            int deltaY = e.Y - old.Y;
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+            // Move the bounds
+            bounds.X += deltaX;
+            bounds.Y += deltaY;
+
+            // Redraw the entire canvas
+            RedrawCanvas();
+            old = e.Location;  // Update the old position for next movement
+        }
+        //
+
+         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawImage(surface, 0, 0);
         }
@@ -80,20 +96,41 @@ namespace cgp_final_project
             
         }
 
-        //
+        // function canvas_MouseDown
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
             old = e.Location;  // Record the position where the user clicked
 
-            if (circleBounds.Contains(e.Location))
+            if (rectangleBounds.Contains(e.Location))
+            {
+                isDraggingRectangle = true;  // Start dragging only if inside the rectangle
+            }
+            else if (circleBounds.Contains(e.Location))
             {
                 isDraggingCircle = true;  // Start dragging only if inside the circle
             }
             else
             {
-                paint = true;  // Start drawing if not clicking on the circle
+                paint = true;  // Start drawing if not clicking on the circle or rectangle
             }
+        }
+
+        private void RedrawCanvas()
+        {
+            graph.Clear(Color.White);
+            graph.DrawEllipse(pen, circleBounds);
+            graph.DrawRectangle(pen, rectangleBounds);
+            canvasPanel.Invalidate();
+        }
+
+        private void DrawLine(MouseEventArgs e)
+        {
+            current = e.Location;
+            g.DrawLine(pen, old, current);
+            graph.DrawLine(pen, old, current);
+            old = current;
+            canvasPanel.Invalidate(); // Refresh the panel to show the new line
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
@@ -102,27 +139,15 @@ namespace cgp_final_project
             {
                 if (isDraggingCircle)
                 {
-                    int deltaX = e.X - old.X;
-                    int deltaY = e.Y - old.Y;
-
-                    // Move the circle's bounds
-                    circleBounds.X += deltaX;
-                    circleBounds.Y += deltaY;
-
-                    // Redraw the entire canvas
-                    graph.Clear(Color.White);  // Clear to avoid ghosting
-                    graph.DrawEllipse(pen, circleBounds);  // Redraw the circle at new position
-                    canvasPanel.Invalidate();  // Refresh the panel
-
-                    old = e.Location;  // Update the old position for next movement
+                    MoveShape(ref circleBounds, e); // Use ref keyword here
+                }
+                else if (isDraggingRectangle)
+                {
+                    MoveShape(ref rectangleBounds, e); // Use ref keyword here
                 }
                 else if (paint)
                 {
-                    current = e.Location;
-                    g.DrawLine(pen, old, current);
-                    graph.DrawLine(pen, old, current);
-                    old = current;
-                    canvasPanel.Invalidate();  // Refresh the panel for drawing
+                    DrawLine(e);
                 }
             }
         }
@@ -187,10 +212,8 @@ namespace cgp_final_project
 
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
-            if (isDraggingCircle)
-            {
-                isDraggingCircle = false;  // Stop dragging the circle
-            }
+            isDraggingCircle = false;
+            isDraggingRectangle = false;
             paint = false;
         }
 
@@ -241,7 +264,19 @@ namespace cgp_final_project
 
         }
 
-       
+        //  drawing a rectangle 
+
+        private void rectangle_btn_Click(object sender, EventArgs e)
+        {
+            int rectangleWidth = 150;
+            int rectangleHeight = 100;
+            int rectangleX = (canvasPanel.Width - rectangleWidth) / 2;
+            int rectangleY = (canvasPanel.Height - rectangleHeight) / 2;
+
+            rectangleBounds = new Rectangle(rectangleX, rectangleY, rectangleWidth, rectangleHeight);
+
+            RedrawCanvas();
         }
+    }
     }
 
