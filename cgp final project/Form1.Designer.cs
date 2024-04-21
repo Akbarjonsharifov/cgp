@@ -42,6 +42,7 @@
             this.draw_button = new System.Windows.Forms.PictureBox();
             this.rectangle_btn = new System.Windows.Forms.PictureBox();
             this.circle_btn = new System.Windows.Forms.PictureBox();
+            this.triangle_btn = new System.Windows.Forms.PictureBox();
             this.TopPanel.SuspendLayout();
             this.canvasPanel.SuspendLayout();
             this.toolboxPanel.SuspendLayout();
@@ -51,11 +52,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.draw_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rectangle_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.circle_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.triangle_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.TopPanel.Controls.Add(this.triangle_btn);
             this.TopPanel.Controls.Add(this.rectangle_btn);
             this.TopPanel.Controls.Add(this.circle_btn);
             this.TopPanel.Controls.Add(this.x_Button);
@@ -202,6 +205,17 @@
             this.circle_btn.TabStop = false;
             this.circle_btn.Click += new System.EventHandler(this.circle_btn_Click);
             // 
+            // triangle_btn
+            // 
+            this.triangle_btn.Image = ((System.Drawing.Image)(resources.GetObject("triangle_btn.Image")));
+            this.triangle_btn.Location = new System.Drawing.Point(795, 12);
+            this.triangle_btn.Name = "triangle_btn";
+            this.triangle_btn.Size = new System.Drawing.Size(129, 85);
+            this.triangle_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.triangle_btn.TabIndex = 6;
+            this.triangle_btn.TabStop = false;
+            this.triangle_btn.Click += new System.EventHandler(this.triangle_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -221,6 +235,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.draw_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rectangle_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.circle_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.triangle_btn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,6 +256,7 @@
         private System.Windows.Forms.PictureBox colorbox;
         private System.Windows.Forms.PictureBox circle_btn;
         private System.Windows.Forms.PictureBox rectangle_btn;
+        private System.Windows.Forms.PictureBox triangle_btn;
     }
 }
 

@@ -30,9 +30,13 @@ namespace cgp_final_project
         private Rectangle circleBounds;  // This will store the circle's position and size
         private Rectangle rectangleBounds;
 
+        private Rectangle triangleBounds; // To store the triangle's bounding box
+        private bool isDraggingTriangle = false;
+
 
         private bool paint = false;
         private bool isDraggingRectangle = false;
+        private Point[] triangleVertices = new Point[3];
 
         Bitmap surface;
 
@@ -79,9 +83,29 @@ namespace cgp_final_project
             RedrawCanvas();
             old = e.Location;  // Update the old position for next movement
         }
+
+        private void MoveTriangle(MouseEventArgs e)
+        {
+            int deltaX = e.X - old.X;
+            int deltaY = e.Y - old.Y;
+
+            for (int i = 0; i < triangleVertices.Length; i++)
+            {
+                triangleVertices[i].Offset(deltaX, deltaY);
+            }
+
+            RedrawCanvas(); // Clear and redraw the canvas
+            old = e.Location;
+        }
+
+        private void DrawTriangle()
+        {
+            graph.DrawPolygon(pen, triangleVertices);
+            canvasPanel.Invalidate(); // This assumes that graph is a Graphics object for the 'surface' bitmap
+        }
         //
 
-         private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawImage(surface, 0, 0);
         }
@@ -104,24 +128,28 @@ namespace cgp_final_project
 
             if (rectangleBounds.Contains(e.Location))
             {
-                isDraggingRectangle = true;  // Start dragging only if inside the rectangle
+                isDraggingRectangle = true;
             }
             else if (circleBounds.Contains(e.Location))
             {
-                isDraggingCircle = true;  // Start dragging only if inside the circle
+                isDraggingCircle = true;
+            }
+            else if (triangleBounds.Contains(e.Location)) // Check if the click is within the triangle's bounding box
+            {
+                isDraggingTriangle = true;
             }
             else
             {
-                paint = true;  // Start drawing if not clicking on the circle or rectangle
+                paint = true;
             }
         }
 
         private void RedrawCanvas()
         {
-            graph.Clear(Color.White);
-            graph.DrawEllipse(pen, circleBounds);
-            graph.DrawRectangle(pen, rectangleBounds);
-            canvasPanel.Invalidate();
+            graph.Clear(Color.White); // Clear the canvas
+            graph.DrawEllipse(pen, circleBounds); // Redraw the circle
+            graph.DrawRectangle(pen, rectangleBounds); // Redraw the rectangle
+            DrawTriangle();
         }
 
         private void DrawLine(MouseEventArgs e)
@@ -130,7 +158,7 @@ namespace cgp_final_project
             g.DrawLine(pen, old, current);
             graph.DrawLine(pen, old, current);
             old = current;
-            canvasPanel.Invalidate(); // Refresh the panel to show the new line
+            canvasPanel.Invalidate();   // Refresh the panel to show the new line
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
@@ -139,11 +167,15 @@ namespace cgp_final_project
             {
                 if (isDraggingCircle)
                 {
-                    MoveShape(ref circleBounds, e); // Use ref keyword here
+                    MoveShape(ref circleBounds, e);
                 }
                 else if (isDraggingRectangle)
                 {
-                    MoveShape(ref rectangleBounds, e); // Use ref keyword here
+                    MoveShape(ref rectangleBounds, e);
+                }
+                else if (isDraggingTriangle)
+                {
+                    MoveTriangle(e); // Implement this function
                 }
                 else if (paint)
                 {
@@ -214,6 +246,7 @@ namespace cgp_final_project
         {
             isDraggingCircle = false;
             isDraggingRectangle = false;
+            isDraggingTriangle = false;
             paint = false;
         }
 
@@ -277,6 +310,36 @@ namespace cgp_final_project
 
             RedrawCanvas();
         }
+        // drawing a triangle 
+
+        private void DrawTriangle(Point vertex1, Point vertex2, Point vertex3)
+        {
+            // Create an array of points to represent the vertices of the triangle
+            Point[] trianglePoints = { vertex1, vertex2, vertex3 };
+
+            // Use the Graphics object to draw the triangle
+            graph.DrawPolygon(pen, trianglePoints);
+
+            // Refresh the canvas panel to update the display
+            canvasPanel.Invalidate();
+        }
+
+        private void triangle_btn_Click(object sender, EventArgs e)
+        {
+            int baseLength = 200;  // Base length of the triangle
+            int height = 96;  // Height of the triangle
+
+            triangleVertices[0] = new Point(canvasPanel.Width / 2, canvasPanel.Height / 2 - height / 2);
+            triangleVertices[1] = new Point(canvasPanel.Width / 2 - baseLength / 2, canvasPanel.Height / 2 + height / 2);
+            triangleVertices[2] = new Point(canvasPanel.Width / 2 + baseLength / 2, canvasPanel.Height / 2 + height / 2);
+
+            // Draw the initial triangle
+            DrawTriangle();
+
+            // Set or update the bounding box for the triangle
+            triangleBounds = new Rectangle(triangleVertices[1].X, triangleVertices[0].Y, baseLength, height);
+        }
     }
     }
+ 
 
